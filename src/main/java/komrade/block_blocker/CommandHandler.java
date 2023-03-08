@@ -118,6 +118,7 @@ public abstract class CommandHandler extends BukkitCommand implements CommandExe
         return true;
     }
 
+
     public boolean onCommand(CommandSender sender, Command command, String alias, String [] arguments) {
         return this.onCommand(sender, arguments);
     }

@@ -1,9 +1,10 @@
 package komrade.block_blocker;
 
-import komrade.block_blocker.commands.BlockPlacement;
+import komrade.block_blocker.commands.BlockCommand;
 import komrade.block_blocker.events.BlockEvents;
-import komrade.block_blocker.utils.ConfigUtil;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.Color;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Block_Blocker extends JavaPlugin {
@@ -12,23 +13,24 @@ public final class Block_Blocker extends JavaPlugin {
     public void onEnable() {
         instance = this;
         // Plugin startup logic
-        Bukkit.getLogger().info("Block Blocker is being enabled, wait...");
+        Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.AQUA + "[Block Blocker] " + ChatColor.WHITE + "Enabling! Please wait...");
 
-        Bukkit.getLogger().info("Loading config system");
+        Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.AQUA + "[Block Blocker] " + ChatColor.WHITE + "Loading config");
         saveDefaultConfig();
 
+        Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.AQUA + "[Block Blocker] " + ChatColor.WHITE + "Loading events");
         Bukkit.getPluginManager().registerEvents(new BlockEvents(this), this);
 
-        Bukkit.getLogger().info("Loading commands");
-        new BlockPlacement(this);
+        Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.AQUA + "[Block Blocker] " + ChatColor.WHITE + "Loading commands");
+        new BlockCommand(this);
 
-        Bukkit.getLogger().info("Done! Thanks for using me <3");
+        Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.AQUA + "[Block Blocker] " + ChatColor.WHITE + "Done! Thanks for trusting me -w-");
     }
 
     @Override
     public void onDisable() {
         // Plugin shutdown logic
-        Bukkit.getLogger().info("Block Blocker is being disabled. Goodbye!");
+        Bukkit.getLogger().info( Color.fromRGB(195, 99, 255) + "Block Blocker " + Color.WHITE + " is being disabled. Goodbye!");
     }
 
     public static Block_Blocker getInstance() {

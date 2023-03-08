@@ -3,14 +3,19 @@ package komrade.block_blocker.commands;
 import komrade.block_blocker.Block_Blocker;
 import komrade.block_blocker.CommandHandler;
 import komrade.block_blocker.Msg;
+import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.TabCompleter;
 import org.bukkit.configuration.file.FileConfiguration;
 
+import java.util.ArrayList;
+import java.util.List;
 
-public class BlockPlacement {
 
-    public BlockPlacement(Block_Blocker plugin) {
-        new CommandHandler("block_blocker", 1, false) {
+public class BlockCommand {
+
+    public BlockCommand(Block_Blocker plugin) {
+        new CommandHandler("block", 1, false) {
 
             @Override
             public boolean onCommand(CommandSender sender, String [] arguments) {
@@ -56,8 +61,26 @@ public class BlockPlacement {
 
             @Override
             public String getUsage() {
-                return "/block [placing | breaking | all] [player (optional)]";
+                return "/block [placing | breaking | all]";
             }
-        };
+        }.enableDelay(5).setPermission("block_blocker.admin");
     }
+
+
+
+    public class BlockTab implements TabCompleter {
+        @Override
+        public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] arguments) {
+            if(arguments.length == 1) {
+                List<String> options = new ArrayList<>();
+                options.add("placing");
+                options.add("breaking");
+                options.add("all");
+                return options;
+            }
+
+            return null;
+        }
+    }
+
 }

@@ -2,9 +2,6 @@ status:
   block_placing: false
   block_breaking: false
 
-banned_blocks:
-
-
 messages:
   placing_enabled: '&aPlacing blocks is now globally enabled!'
   placing_disabled: '&cPlacing blocks is now globally disabled!'
