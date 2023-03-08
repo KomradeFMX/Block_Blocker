@@ -66,21 +66,4 @@ public class BlockCommand {
         }.enableDelay(5).setPermission("block_blocker.admin");
     }
 
-
-
-    public class BlockTab implements TabCompleter {
-        @Override
-        public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] arguments) {
-            if(arguments.length == 1) {
-                List<String> options = new ArrayList<>();
-                options.add("placing");
-                options.add("breaking");
-                options.add("all");
-                return options;
-            }
-
-            return null;
-        }
-    }
-
 }
