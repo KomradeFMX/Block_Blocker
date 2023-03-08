@@ -1,0 +1,13 @@
+name: Block_Blocker
+version: '${project.version}'
+main: komrade.block_blocker.Block_Blocker
+api-version: 1.18
+
+commands:
+  block:
+    description: Makes players unable to place any blocks
+    usage: /block [placement | breaking | all]
+    aliases:
+    - bp
+    permission: blockblocker.admin
+    permission-message: You don´t have permission to use this command!

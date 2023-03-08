@@ -1,0 +1,14 @@
+status:
+  block_placing: false
+  block_breaking: false
+
+banned_blocks:
+
+
+messages:
+  placing_enabled: '&aPlacing blocks is now globally enabled!'
+  placing_disabled: '&cPlacing blocks is now globally disabled!'
+  breaking_enabled: '&aBreaking blocks is now globally enabled!'
+  breaking_disabled: '&cBreaking blocks is now globally disabled!'
+  all_enabled: '&aPlacing and breaking blocks is now globally enabled!'
+  all_disabled: '&cPlacing and breaking blocks is now globally disabled!'
